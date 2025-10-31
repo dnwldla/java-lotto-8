@@ -4,11 +4,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import lotto.Validator;
 
 public class MainNumbers {
     public static final String INVALID_COUNT = "총 6개의 숫자를 입력해야 합니다";
-    public static final String NUMBER_OUT_OF_RANGE = "숫자는 1부터 45 중 하나입니다";
-    public static final String NOT_INTEGER = "정수가 아닙니다";
 
     private static final String REGEX = ",";
 
@@ -25,7 +24,7 @@ public class MainNumbers {
     }
 
 
-    public static List<Integer> parseNumbers(String input) {
+    private static List<Integer> parseNumbers(String input) {
         String[] tokens = input.trim().split(REGEX);
 
         if (tokens.length != LottoConstant.COUNT) {
@@ -33,28 +32,11 @@ public class MainNumbers {
         }
 
         return Arrays.stream(input.trim().split(REGEX))
-            .map(MainNumbers::validateInteger)
-            .map(MainNumbers::validateRange).toList();
+            .map(Validator::validateInteger)
+            .map(Validator::validateRange).toList();
     }
 
 
-    private static int validateRange(int number) {
-        if (number < LottoConstant.MIN_NUMBER || number > LottoConstant.MAX_NUMBER) {
-            throw new IllegalArgumentException(NUMBER_OUT_OF_RANGE);
-        }
 
-        return number;
-    }
-
-    private static int validateInteger(String token) {
-        int number;
-        try {
-            number = Integer.parseInt(token);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(NOT_INTEGER);
-        }
-
-        return number;
-    }
 
 }

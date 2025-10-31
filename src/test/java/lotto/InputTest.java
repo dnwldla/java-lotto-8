@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import lotto.domain.MainNumbers;
+import lotto.domain.WinningNumbers;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -28,7 +29,7 @@ public class InputTest {
             assertThrows(IllegalArgumentException.class, () -> new MainNumbers(input));
 
         assertThat(exception.getMessage())
-            .isEqualTo(MainNumbers.NOT_INTEGER);
+            .isEqualTo(Validator.NOT_INTEGER);
 
 
     }
@@ -44,7 +45,7 @@ public class InputTest {
             assertThrows(IllegalArgumentException.class, () -> new MainNumbers(input));
 
         assertThat(exception.getMessage())
-            .isEqualTo(MainNumbers.NUMBER_OUT_OF_RANGE);
+            .isEqualTo(WinningNumbers.NUMBER_OUT_OF_RANGE);
 
 
     }

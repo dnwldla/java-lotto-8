@@ -13,7 +13,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class BonusNumberTest {
 
-    //정상적인 번호
     @Test
     void inputWithValidString() {
         String input = "6";
@@ -45,7 +44,7 @@ public class BonusNumberTest {
             assertThrows(IllegalArgumentException.class, () -> new BonusNumber(input));
 
         assertThat(exception.getMessage())
-            .isEqualTo(MainNumbers.NOT_INTEGER);
+            .isEqualTo(Validator.NOT_INTEGER);
 
     }
 
