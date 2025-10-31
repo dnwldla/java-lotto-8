@@ -1,5 +1,6 @@
 package lotto.domain;
 
+import java.util.Set;
 import lotto.Validator;
 
 public class BonusNumber {
@@ -17,5 +18,9 @@ public class BonusNumber {
 
     public Integer getNumber() {
         return this.number;
+    }
+
+    public boolean isBonus(Set<Integer> lottoSet) {
+        return lottoSet.contains(this.number);
     }
 }
