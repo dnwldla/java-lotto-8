@@ -7,8 +7,7 @@ import java.util.Set;
 import lotto.Validator;
 
 public class MainNumbers {
-    public static final String INVALID_COUNT = "총 6개의 숫자를 입력해야 합니다";
-
+    public static final String INVALID_COUNT = LottoConstant.toMessage("총 6개의 숫자를 입력해야 합니다");
     private static final String REGEX = ",";
 
     private final List<Integer> numbers;
