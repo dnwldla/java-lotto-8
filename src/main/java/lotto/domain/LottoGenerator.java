@@ -10,10 +10,12 @@ public class LottoGenerator {
     private static final int COUNT = 6;
 
     public static List<Integer> createLotto() {
-        return Randoms.pickUniqueNumbersInRange(MIN_NUMBER, MAX_NUMBER, COUNT);
+        return Randoms.pickUniqueNumbersInRange(MIN_NUMBER, MAX_NUMBER, COUNT)
+            .stream().sorted()
+            .toList();
     }
 
-    public static Integer createBonus(){
+    public static Integer createBonus() {
         return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
     }
 
