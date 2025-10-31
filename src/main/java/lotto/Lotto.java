@@ -1,8 +1,14 @@
 package lotto;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import lotto.domain.BonusNumber;
+import lotto.domain.MainNumbers;
+import lotto.domain.Rank;
 
 public class Lotto {
+
     private final List<Integer> numbers;
 
     public Lotto(List<Integer> numbers) {
@@ -16,5 +22,20 @@ public class Lotto {
         }
     }
 
-    // TODO: 추가 기능 구현
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
+
+
+    public Rank getRank(MainNumbers mainNumbers, BonusNumber bonusNumber) {
+        int hits = mainNumbers.getHits(numbers);
+        boolean hasBonus = bonusNumber.isBonus(toSet());
+
+        return Rank.getRank(hits, hasBonus);
+    }
+
+    private Set<Integer> toSet() {
+        return new HashSet<>(numbers);
+    }
+
 }

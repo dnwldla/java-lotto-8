@@ -3,7 +3,7 @@ package lotto.domain;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import lotto.Lotto;
+import java.util.stream.IntStream;
 
 public class MainNumbers {
     private final List<Integer> numbers;
@@ -18,13 +18,11 @@ public class MainNumbers {
         return set.contains(bonus.getNumber());
     }
 
-    public int getHits(Lotto lotto) {
-        int hit=0;
-        for (int i=0;i<numbers.size();i++) {
-            if (numbers.get(i)==lotto.getNumbers().get(i)) {
-                hit++;
-            }
-        }
-        return hit;
+    public int getHits(List<Integer> lottoNumbers) {
+        long hit=IntStream.range(0, numbers.size())
+            .filter(i -> numbers.get(i).equals(lottoNumbers.get(i)))
+            .count();
+
+        return (int)hit;
     }
 }
