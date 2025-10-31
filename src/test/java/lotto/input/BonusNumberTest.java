@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.List;
 import lotto.Validator;
 import lotto.domain.BonusNumber;
 import lotto.domain.MainNumbers;
@@ -26,7 +27,7 @@ public class BonusNumberTest {
     void inputWithDuplicateNumber() {
         String input = "6";
 
-        String mainNumbers = "1,2,3,4,5,6";
+        List<Integer> mainNumbers = List.of(1,2,3,4,5,6);
 
         IllegalArgumentException exception =
             assertThrows(IllegalArgumentException.class,

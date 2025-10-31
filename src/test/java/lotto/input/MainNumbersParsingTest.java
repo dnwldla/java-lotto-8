@@ -5,20 +5,20 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import lotto.Validator;
-import lotto.domain.MainNumbers;
 import lotto.domain.WinningNumbers;
+import lotto.parser.LottoNumberParser;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 
-public class MainNumbersTest {
+public class MainNumbersParsingTest {
 
     @Test
     void inputWithValidString() {
         String input = "1,2,3,4,5,6";
 
-        assertDoesNotThrow(() -> new MainNumbers(input));
+        assertDoesNotThrow(() -> LottoNumberParser.parseMainNumbers(input));
 
     }
 
@@ -27,7 +27,7 @@ public class MainNumbersTest {
         String input = "1,2,3!,4,5,6";
 
         IllegalArgumentException exception =
-            assertThrows(IllegalArgumentException.class, () -> new MainNumbers(input));
+            assertThrows(IllegalArgumentException.class, () -> LottoNumberParser.parseMainNumbers(input));
 
         assertThat(exception.getMessage())
             .isEqualTo(Validator.NOT_INTEGER);
@@ -43,7 +43,7 @@ public class MainNumbersTest {
     })
     void inputWithNegativeNumber(String input) {
         IllegalArgumentException exception =
-            assertThrows(IllegalArgumentException.class, () -> new MainNumbers(input));
+            assertThrows(IllegalArgumentException.class, () -> LottoNumberParser.parseMainNumbers(input));
 
         assertThat(exception.getMessage())
             .isEqualTo(WinningNumbers.NUMBER_OUT_OF_RANGE);
@@ -57,10 +57,10 @@ public class MainNumbersTest {
         String input = "1,2,3,4,5";
 
         IllegalArgumentException exception =
-            assertThrows(IllegalArgumentException.class, () -> new MainNumbers(input));
+            assertThrows(IllegalArgumentException.class, () -> LottoNumberParser.parseMainNumbers(input));
 
         assertThat(exception.getMessage())
-            .isEqualTo(MainNumbers.INVALID_COUNT);
+            .isEqualTo(LottoNumberParser.INVALID_COUNT);
     }
 
 }
