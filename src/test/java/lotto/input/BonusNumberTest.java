@@ -1,9 +1,10 @@
-package lotto;
+package lotto.input;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import lotto.Validator;
 import lotto.domain.BonusNumber;
 import lotto.domain.MainNumbers;
 import lotto.domain.WinningNumbers;

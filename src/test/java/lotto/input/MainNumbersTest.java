@@ -1,9 +1,10 @@
-package lotto;
+package lotto.input;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import lotto.Validator;
 import lotto.domain.MainNumbers;
 import lotto.domain.WinningNumbers;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 
-public class InputTest {
+public class MainNumbersTest {
 
     @Test
     void inputWithValidString() {
