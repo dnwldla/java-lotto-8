@@ -6,26 +6,44 @@ import lotto.domain.Rank;
 
 public class OutputView {
 
+    public static void printAmount(int amount) {
+        System.out.printf("%d개를 구매했습니다.\n", amount);
+
+    }
+
     public static void printPrizeResult(Entry<Rank, Integer> entry, boolean hasBonus) {
         Rank rank = entry.getKey();
         int count = entry.getValue();
         if (hasBonus) {
             printBonusResult(rank, count);
-        }else{
-            System.out.printf("%d개 일치 ( %,d원 ) - %d개\n", rank.getHits(), rank.getPrize(), count);
+        } else {
+            System.out.printf("%d개 일치 (%,d원) - %d개\n", rank.getHits(), rank.getPrize(), count);
 
         }
 
     }
 
-    public static void printGeneratedLotto(List<Integer> lotto){
+    public static void printGeneratedLotto(List<Integer> lotto) {
         System.out.println(lotto.toString());
 
     }
 
     private static void printBonusResult(Rank rank, int count) {
-        System.out.printf("%d개 일치, 보너스 볼 일치 ( %,d원 ) - %d개\n", rank.getHits(), rank.getPrize(),
+        System.out.printf("%d개 일치, 보너스 볼 일치 (%,d원) - %d개\n", rank.getHits(), rank.getPrize(),
             count);
 
+    }
+
+    public static void printErrorMessage(String message) {
+        System.out.println(message);
+    }
+
+    public static void printResultPrompt() {
+        System.out.println("당첨 통계");
+        System.out.println("---");
+    }
+
+    public static void printProfit(double profits) {
+        System.out.printf("총 수익률은 %.1f%%입니다.", profits);
     }
 }
