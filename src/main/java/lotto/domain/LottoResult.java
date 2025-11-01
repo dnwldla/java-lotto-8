@@ -31,6 +31,7 @@ public class LottoResult {
     public void printProgress() {
         rankCounts.entrySet().stream()
             .sorted((o1,o2)-> o1.getKey().getHits()-o2.getKey().getHits())
+            .filter(entry->entry.getKey()!=Rank.MISS)
             .forEach(entry->OutputView.printPrizeResult(entry,entry.getKey().hasBonus()));
 
     }
