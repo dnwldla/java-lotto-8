@@ -6,6 +6,7 @@ import java.util.Set;
 import lotto.domain.BonusNumber;
 import lotto.domain.MainNumbers;
 import lotto.domain.Rank;
+import lotto.view.OutputView;
 
 public class Lotto {
 
@@ -32,6 +33,10 @@ public class Lotto {
         boolean hasBonus = bonusNumber.isBonus(toSet());
 
         return Rank.getRank(hits, hasBonus);
+    }
+
+    public void printGeneratedLotto(){
+        OutputView.printGeneratedLotto(numbers);
     }
 
     private Set<Integer> toSet() {

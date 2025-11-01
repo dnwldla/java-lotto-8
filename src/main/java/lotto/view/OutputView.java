@@ -1,5 +1,6 @@
 package lotto.view;
 
+import java.util.List;
 import java.util.Map.Entry;
 import lotto.domain.Rank;
 
@@ -14,6 +15,11 @@ public class OutputView {
             System.out.printf("%d개 일치 ( %,d원 ) - %d개\n", rank.getHits(), rank.getPrize(), count);
 
         }
+
+    }
+
+    public static void printGeneratedLotto(List<Integer> lotto){
+        System.out.println(lotto.toString());
 
     }
 
