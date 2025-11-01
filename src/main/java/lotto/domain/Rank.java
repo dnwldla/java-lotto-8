@@ -1,6 +1,8 @@
 package lotto.domain;
 
 import java.util.Arrays;
+import java.util.EnumMap;
+import java.util.Map;
 import java.util.Map.Entry;
 
 public enum Rank {
@@ -28,11 +30,30 @@ public enum Rank {
             .orElse(MISS);
     }
 
+    public static Map<Rank, Integer> from(){
+        Map<Rank, Integer> rankCounts = new EnumMap<>(Rank.class);
+
+        for (Rank rank:Rank.values()){
+            rankCounts.put(rank,0);
+        }
+
+        return rankCounts;
+
+    }
+
 
     public static long getProfits(Entry<Rank, Integer> entry) {
         int amount = entry.getValue();
         Rank rank = entry.getKey();
 
         return (long) amount * rank.prize;
+    }
+
+    public int getHits() {
+        return hits;
+    }
+
+    public long getPrize() {
+        return prize;
     }
 }
