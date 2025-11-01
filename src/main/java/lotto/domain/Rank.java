@@ -53,6 +53,10 @@ public enum Rank {
         return hits;
     }
 
+    public boolean hasBonus() {
+        return hasBonus;
+    }
+
     public long getPrize() {
         return prize;
     }
