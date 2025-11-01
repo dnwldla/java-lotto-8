@@ -2,8 +2,8 @@ package lotto.domain;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
-import java.util.stream.IntStream;
 
 public class MainNumbers {
     private final List<Integer> numbers;
@@ -19,10 +19,17 @@ public class MainNumbers {
     }
 
     public int getHits(List<Integer> lottoNumbers) {
-        long hit=IntStream.range(0, numbers.size())
-            .filter(i -> numbers.get(i).equals(lottoNumbers.get(i)))
-            .count();
+        int hit=0;
 
-        return (int)hit;
+        for (Integer lottoNumber:lottoNumbers){
+            for (Integer mainNumber:numbers){
+                if (lottoNumber==mainNumber){
+                    hit++;
+                    break;
+                }
+            }
+        }
+
+        return hit;
     }
 }
