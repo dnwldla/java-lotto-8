@@ -89,8 +89,8 @@ public class Game {
     private BonusNumber enterBonusNumber(MainNumbers mainNumbers) {
         while (true) {
             try {
-                String rawInput = inputView.enterBonusNumber();
-                BonusNumber bonusNumber = new BonusNumber(rawInput);
+                int number=LottoValidator.validateInteger(inputView.enterBonusNumber());
+                BonusNumber bonusNumber = new BonusNumber(number);
 
                 new WinningNumbers(mainNumbers, bonusNumber);
 

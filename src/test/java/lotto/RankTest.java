@@ -22,7 +22,7 @@ public class RankTest {
     void shouldReturnExpectedRank(List<Integer> lottoNums, int bonus, Rank expected) {
         Lotto lotto = new Lotto(lottoNums);
         MainNumbers main = new MainNumbers(List.of(1, 2, 3, 4, 5, 6));
-        BonusNumber bonusNumber = new BonusNumber(String.valueOf(bonus));
+        BonusNumber bonusNumber = new BonusNumber(bonus);
 
         Rank actual = lotto.getRank(main, bonusNumber);
 

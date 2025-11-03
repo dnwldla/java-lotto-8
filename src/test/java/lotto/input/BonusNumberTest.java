@@ -17,33 +17,33 @@ public class BonusNumberTest {
 
     @Test
     void inputWithValidString() {
-        String input = "6";
+        int number=6;
 
-        assertDoesNotThrow(() -> new BonusNumber(input));
+        assertDoesNotThrow(() -> new BonusNumber(number));
 
     }
 
     @Test
     void inputWithDuplicateNumber() {
-        String input = "6";
+        int number= 6;
 
         List<Integer> mainNumbers = List.of(1,2,3,4,5,6);
 
         IllegalArgumentException exception =
             assertThrows(IllegalArgumentException.class,
-                () -> new WinningNumbers(new MainNumbers(mainNumbers), new BonusNumber(input)));
+                () -> new WinningNumbers(new MainNumbers(mainNumbers), new BonusNumber(number)));
 
         assertThat(exception.getMessage())
             .isEqualTo(WinningNumbers.ALREADY_EXIST);
 
     }
 
-    @Test
+        @Test
     void inputWithInvalidString() {
         String input = "3!";
 
         IllegalArgumentException exception =
-            assertThrows(IllegalArgumentException.class, () -> new BonusNumber(input));
+            assertThrows(IllegalArgumentException.class, () -> LottoValidator.validateInteger(input));
 
         assertThat(exception.getMessage())
             .isEqualTo(LottoValidator.NOT_INTEGER);
@@ -52,17 +52,19 @@ public class BonusNumberTest {
 
 
     @ParameterizedTest
-    @ValueSource(strings = {
-        "0",
-        "-1",
-        "46"
+    @ValueSource(ints = {
+        0,
+        -1,
+        46
     })
-    void inputWithOutOfRangeNumber(String input) {
+    void inputWithOutOfRangeNumber(int input) {
         IllegalArgumentException exception =
-            assertThrows(IllegalArgumentException.class, () -> new BonusNumber(input));
+            assertThrows(IllegalArgumentException.class, () -> LottoValidator.validateRange(input));
 
         assertThat(exception.getMessage())
             .isEqualTo(LottoValidator.NUMBER_OUT_OF_RANGE);
     }
+
+
 
 }
