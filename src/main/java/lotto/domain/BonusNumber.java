@@ -1,7 +1,7 @@
 package lotto.domain;
 
 import java.util.Set;
-import lotto.Validator;
+import lotto.LottoValidator;
 
 public class BonusNumber {
 
@@ -12,8 +12,8 @@ public class BonusNumber {
     }
 
     private Integer parseNumber(String input) {
-        int number = Validator.validateInteger(input);
-        return Validator.validateRange(number);
+        int number = LottoValidator.validateInteger(input);
+        return LottoValidator.validateRange(number);
     }
 
     public Integer getNumber() {

@@ -3,7 +3,7 @@ package lotto.input;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import lotto.Validator;
+import lotto.LottoValidator;
 import lotto.domain.Money;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -43,7 +43,7 @@ public class MoneyTest {
             assertThrows(IllegalArgumentException.class, () -> new Money(input));
 
         assertThat(exception.getMessage())
-            .isEqualTo(Validator.NOT_INTEGER);
+            .isEqualTo(LottoValidator.NOT_INTEGER);
 
 
     }

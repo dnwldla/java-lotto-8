@@ -2,7 +2,6 @@ package lotto.domain;
 
 public class WinningNumbers {
 
-    public static final String NUMBER_OUT_OF_RANGE = LottoConstant.toMessage("숫자는 1부터 45 중 하나입니다");
     public static final String ALREADY_EXIST = LottoConstant.toMessage("보너스 번호가 로또 번호에 이미 존재합니다");
 
     private final MainNumbers mainNumbers;

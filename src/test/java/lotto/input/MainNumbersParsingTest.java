@@ -4,8 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import lotto.Validator;
-import lotto.domain.WinningNumbers;
+import lotto.LottoValidator;
 import lotto.parser.LottoNumberParser;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -30,7 +29,7 @@ public class MainNumbersParsingTest {
             assertThrows(IllegalArgumentException.class, () -> LottoNumberParser.parseMainNumbers(input));
 
         assertThat(exception.getMessage())
-            .isEqualTo(Validator.NOT_INTEGER);
+            .isEqualTo(LottoValidator.NOT_INTEGER);
 
 
     }
@@ -46,7 +45,7 @@ public class MainNumbersParsingTest {
             assertThrows(IllegalArgumentException.class, () -> LottoNumberParser.parseMainNumbers(input));
 
         assertThat(exception.getMessage())
-            .isEqualTo(WinningNumbers.NUMBER_OUT_OF_RANGE);
+            .isEqualTo(LottoValidator.NUMBER_OUT_OF_RANGE);
 
 
     }

@@ -1,6 +1,6 @@
 package lotto.domain;
 
-import lotto.Validator;
+import lotto.LottoValidator;
 
 public class Money {
 
@@ -10,7 +10,7 @@ public class Money {
     private final int seeds;
 
     public Money(String input) {
-        int money = Validator.validateInteger(input);
+        int money = LottoValidator.validateInteger(input);
         this.seeds = validateThousandUnit(money);
     }
 

@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
-import lotto.Validator;
+import lotto.LottoValidator;
 import lotto.domain.BonusNumber;
 import lotto.domain.MainNumbers;
 import lotto.domain.WinningNumbers;
@@ -46,7 +46,7 @@ public class BonusNumberTest {
             assertThrows(IllegalArgumentException.class, () -> new BonusNumber(input));
 
         assertThat(exception.getMessage())
-            .isEqualTo(Validator.NOT_INTEGER);
+            .isEqualTo(LottoValidator.NOT_INTEGER);
 
     }
 
@@ -62,7 +62,7 @@ public class BonusNumberTest {
             assertThrows(IllegalArgumentException.class, () -> new BonusNumber(input));
 
         assertThat(exception.getMessage())
-            .isEqualTo(WinningNumbers.NUMBER_OUT_OF_RANGE);
+            .isEqualTo(LottoValidator.NUMBER_OUT_OF_RANGE);
     }
 
 }

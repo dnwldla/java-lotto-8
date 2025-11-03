@@ -2,7 +2,7 @@ package lotto;
 
 import lotto.domain.LottoConstant;
 
-public class Validator {
+public class LottoValidator {
 
     public static final String NUMBER_OUT_OF_RANGE = LottoConstant.toMessage("숫자는 1부터 45 중 하나입니다");
     public static final String NOT_INTEGER = LottoConstant.toMessage("정수가 아닙니다");

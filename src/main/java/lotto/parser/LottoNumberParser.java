@@ -2,7 +2,7 @@ package lotto.parser;
 
 import java.util.Arrays;
 import java.util.List;
-import lotto.Validator;
+import lotto.LottoValidator;
 import lotto.domain.LottoConstant;
 
 public class LottoNumberParser {
@@ -17,8 +17,8 @@ public class LottoNumberParser {
         }
 
         return Arrays.stream(input.trim().split(REGEX))
-            .map(Validator::validateInteger)
-            .map(Validator::validateRange)
+            .map(LottoValidator::validateInteger)
+            .map(LottoValidator::validateRange)
             .sorted()
             .toList();
     }
