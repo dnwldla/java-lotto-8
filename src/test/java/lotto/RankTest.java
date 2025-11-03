@@ -16,15 +16,12 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 public class RankTest {
+    private final Lotto LOTTO = new Lotto(List.of(1, 2, 3, 4, 5, 6));
 
     @ParameterizedTest
     @MethodSource("cases")
-    void shouldReturnExpectedRank(List<Integer> lottoNums, int bonus, Rank expected) {
-        Lotto lotto = new Lotto(lottoNums);
-        MainNumbers main = new MainNumbers(List.of(1, 2, 3, 4, 5, 6));
-        BonusNumber bonusNumber = new BonusNumber(bonus);
-
-        Rank actual = lotto.getRank(main, bonusNumber);
+    void shouldReturnExpectedRank(MainNumbers mainNumbers, BonusNumber bonusNumber, Rank expected) {
+        Rank actual = LOTTO.getRank(mainNumbers, bonusNumber);
 
         assertThat(actual).isEqualTo(expected);
     }
@@ -42,13 +39,36 @@ public class RankTest {
 
     private static Stream<Arguments> cases() {
         return Stream.of(
-            Arguments.of(List.of(1, 2, 3, 4, 5, 6), 11, Rank.FIRST),
-            Arguments.of(List.of(1, 2, 3, 4, 5, 7), 7, Rank.SECOND),
-            Arguments.of(List.of(1, 2, 3, 4, 5, 7), 11, Rank.THIRD),
-            Arguments.of(List.of(1, 2, 3, 4, 10, 11), 7, Rank.FOURTH),
-            Arguments.of(List.of(1, 2, 3, 10, 11, 12), 7, Rank.FIFTH),
-            Arguments.of(List.of(1, 2, 9, 10, 11, 12), 7, Rank.MISS)
+            Arguments.of(
+                new MainNumbers(List.of(1, 2, 3, 4, 5, 6)),
+                new BonusNumber(11),
+                Rank.FIRST
+            ),
+            Arguments.of(
+                new MainNumbers(List.of(1, 2, 3, 4, 5, 7)),
+                new BonusNumber(6),
+                Rank.SECOND
+            ),
+            Arguments.of(
+                new MainNumbers(List.of(1, 2, 3, 4, 5, 7)),
+                new BonusNumber(11),
+                Rank.THIRD
+            ),
+            Arguments.of(
+                new MainNumbers(List.of(1, 2, 3, 4, 10, 11)),
+                new BonusNumber(7),
+                Rank.FOURTH
+            ),
+            Arguments.of(
+                new MainNumbers(List.of(1, 2, 3, 10, 11, 12)),
+                new BonusNumber(7),
+                Rank.FIFTH
+            ),
+            Arguments.of(
+                new MainNumbers(List.of(1, 2, 9, 10, 11, 12)),
+                new BonusNumber(7),
+                Rank.MISS
+            )
         );
-
     }
 }
