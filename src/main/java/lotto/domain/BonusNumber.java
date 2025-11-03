@@ -1,7 +1,7 @@
 package lotto.domain;
 
 import java.util.Set;
-import lotto.LottoValidator;
+import lotto.util.LottoValidator;
 
 public class BonusNumber {
 

@@ -1,9 +1,7 @@
-package lotto.parser;
+package lotto.util;
 
 import java.util.Arrays;
 import java.util.List;
-import lotto.LottoValidator;
-import lotto.domain.LottoConstant;
 
 public class LottoNumberParser {
     public static final String INVALID_COUNT = LottoConstant.toMessage("총 6개의 숫자를 입력해야 합니다");

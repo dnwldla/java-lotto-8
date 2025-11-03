@@ -2,8 +2,8 @@ package lotto.domain;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
+import lotto.util.LottoConstant;
 
 public class MainNumbers {
     public static final String DUPLICATED_NUMBER = LottoConstant.toMessage("서로 다른 당첨번호를 입력해야 합니다");

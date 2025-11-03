@@ -1,11 +1,8 @@
-package lotto;
+package lotto.domain;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import lotto.domain.BonusNumber;
-import lotto.domain.MainNumbers;
-import lotto.domain.Rank;
 import lotto.view.OutputView;
 
 public class Lotto {

@@ -1,5 +1,7 @@
 package lotto.domain;
 
+import lotto.util.LottoConstant;
+
 public class WinningNumbers {
 
     public static final String ALREADY_EXIST = LottoConstant.toMessage("보너스 번호가 로또 번호에 이미 존재합니다");

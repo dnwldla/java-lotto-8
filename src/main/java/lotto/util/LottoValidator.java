@@ -1,6 +1,4 @@
-package lotto;
-
-import lotto.domain.LottoConstant;
+package lotto.util;
 
 public class LottoValidator {
 

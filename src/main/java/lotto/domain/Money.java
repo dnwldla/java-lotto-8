@@ -1,6 +1,7 @@
 package lotto.domain;
 
-import lotto.LottoValidator;
+import lotto.util.LottoConstant;
+import lotto.util.LottoValidator;
 
 public class Money {
 

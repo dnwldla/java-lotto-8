@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
-import lotto.LottoValidator;
+import lotto.util.LottoValidator;
 import lotto.domain.BonusNumber;
 import lotto.domain.MainNumbers;
 import lotto.domain.WinningNumbers;

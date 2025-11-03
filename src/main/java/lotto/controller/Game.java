@@ -1,15 +1,16 @@
-package lotto;
+package lotto.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 import lotto.domain.BonusNumber;
-import lotto.domain.LottoGenerator;
+import lotto.domain.Lotto;
+import lotto.util.LottoGenerator;
 import lotto.domain.LottoResult;
 import lotto.domain.MainNumbers;
 import lotto.domain.Money;
 import lotto.domain.Rank;
 import lotto.domain.WinningNumbers;
-import lotto.parser.LottoNumberParser;
+import lotto.util.LottoNumberParser;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -21,7 +22,7 @@ public class Game {
         this.inputView=inputView;
     }
 
-    void startGame() {
+    public void startGame() {
         Money money = enterMoneyInput();
         List<Lotto> lottos = generateLottos(money.getAmount());
         MainNumbers mainNumbers = enterHitNumbers();
