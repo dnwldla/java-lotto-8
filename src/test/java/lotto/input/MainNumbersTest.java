@@ -5,19 +5,18 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import lotto.util.LottoValidator;
-import lotto.util.LottoNumberParser;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 
-public class MainNumbersParsingTest {
+public class MainNumbersTest {
 
     @Test
     void inputWithValidString() {
         String input = "1,2,3,4,5,6";
 
-        assertDoesNotThrow(() -> LottoNumberParser.parseMainNumbers(input));
+        assertDoesNotThrow(() -> LottoValidator.parseMainNumbers(input));
 
     }
 
@@ -26,7 +25,7 @@ public class MainNumbersParsingTest {
         String input = "1,2,3!,4,5,6";
 
         IllegalArgumentException exception =
-            assertThrows(IllegalArgumentException.class, () -> LottoNumberParser.parseMainNumbers(input));
+            assertThrows(IllegalArgumentException.class, () -> LottoValidator.parseMainNumbers(input));
 
         assertThat(exception.getMessage())
             .isEqualTo(LottoValidator.NOT_INTEGER);
@@ -42,7 +41,7 @@ public class MainNumbersParsingTest {
     })
     void inputWithNegativeNumber(String input) {
         IllegalArgumentException exception =
-            assertThrows(IllegalArgumentException.class, () -> LottoNumberParser.parseMainNumbers(input));
+            assertThrows(IllegalArgumentException.class, () -> LottoValidator.parseMainNumbers(input));
 
         assertThat(exception.getMessage())
             .isEqualTo(LottoValidator.NUMBER_OUT_OF_RANGE);
@@ -56,10 +55,10 @@ public class MainNumbersParsingTest {
         String input = "1,2,3,4,5";
 
         IllegalArgumentException exception =
-            assertThrows(IllegalArgumentException.class, () -> LottoNumberParser.parseMainNumbers(input));
+            assertThrows(IllegalArgumentException.class, () -> LottoValidator.parseMainNumbers(input));
 
         assertThat(exception.getMessage())
-            .isEqualTo(LottoNumberParser.INVALID_COUNT);
+            .isEqualTo(LottoValidator.INVALID_COUNT);
     }
 
 }

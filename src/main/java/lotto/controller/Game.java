@@ -10,7 +10,7 @@ import lotto.domain.MainNumbers;
 import lotto.domain.Money;
 import lotto.domain.Rank;
 import lotto.domain.WinningNumbers;
-import lotto.util.LottoNumberParser;
+import lotto.util.LottoValidator;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -78,7 +78,7 @@ public class Game {
         while (true) {
             try {
                 String rawInput = inputView.enterHitNumbers();
-                List<Integer> numbers = LottoNumberParser.parseMainNumbers(rawInput);
+                List<Integer> numbers = LottoValidator.parseMainNumbers(rawInput);
                 return new MainNumbers(numbers);
             } catch (IllegalArgumentException e) {
                 OutputView.printErrorMessage(e.getMessage());
